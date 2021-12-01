@@ -4,7 +4,9 @@ import * as elem from './elements.js';
 // Waits for result if response code wasn't 200 OK throw an error with error code
 // Waits for body and parses it as JSON then returns it
 async function submitForm(fullname) {
+    handleLoading();
     const result = await fetch(`https://api.genderize.io/?name=${fullname}`);
+    clearNotification();
     if(result.status != 200) {
         throw new Error('Recieved response with error code:' + result.status)
     }
@@ -21,6 +23,9 @@ async function showPredictionResult(result) {
         if(resolvedResult.gender){
             elem.genderRadioInputs[0].checked = resolvedResult.gender == 'male';
             elem.genderRadioInputs[1].checked = !elem.genderRadioInputs[0].checked;
+            handleSuccess('Found a match in API database');
+        } else {
+            handleError('Did not find a match in API database')
         }
         elem.predictionAccuracy.innerText = resolvedResult.probability || 'Not Specified';
         fetchLocalStorage();
@@ -47,6 +52,7 @@ function fetchLocalStorage() {
 function clearLocalStorage() {
     const name = elem.fullNameInput.value;
     localStorage.removeItem(name);
+    handleSuccess('Record cleared from storage if existed.')
 }
 
 // Resets result in DOM to empty string
@@ -56,11 +62,31 @@ function resetResults() {
     elem.savedGender.innerText = '';
 }
 
-// Handles and shows errors
+// Handles and shows errors clears after 2 seconds
 function handleError(error) {
-
+    elem.notification.innerText = error;
+    elem.notification.classList.add('error');
+    setTimeout(clearNotification, 2000)
 }
 
+// Handles and shows success clears after 2 seconds
+function handleSuccess(msg) {
+    elem.notification.innerText = msg;
+    elem.notification.classList.add('success');
+    setTimeout(clearNotification, 2000)
+}
+
+// Handles and shows loading
+function handleLoading() {
+    elem.notification.innerText = 'Fetching the data please wait...';
+    elem.notification.classList.add('loading');
+}
+
+// Clears the notification by changing background to transparent
+function clearNotification() {
+    elem.notification.classList = 'notifications';
+    elem.notification.innerText = '';
+}
 // Add eventListener on submit of the form with submit event
 // Prevent default action and reload of page and use submitForm
 elem.form.addEventListener('submit', (e) => {

@@ -36,6 +36,20 @@ Use flex to stack up elements on top of each other
 }
 
 /*
+Add media query for screens with width lower than 550px
+to show form in rows and make it mobile friendly
+*/
+@media screen and (max-width: 550px) {
+    .form {
+        flex-direction: column;
+    }
+    .response {
+        min-height: 300px;
+        width: 80%;
+    }
+}
+
+/*
 Give direct children of each column padding for better seperation
 */
 .questions > *, .response > * {

@@ -8,3 +8,4 @@ export const saveBtn = document.querySelector('button.btn.save');
 export const predictionGender = document.querySelector('div.prediction_result--gender');
 export const predictionAccuracy = document.querySelector('div.prediction_result--accuracy');
 export const savedGender = document.querySelector('div.saved_answer--gender');
+export const notification = document.querySelector('div.notifications');

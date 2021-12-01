@@ -26,6 +26,7 @@ To center the contents horizentaly and vertically
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -37,7 +38,24 @@ h2 {
     margin: .5rem 0;
 }
 
-.validate_error {
-    color: red;
-    padding: .2rem;
+.notifications {
+    color: white;
+    height: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5rem;
+    padding: .5rem;
+    background-color: transparent;
+    transition: all ease .5s;
+}
+
+.error {
+    background-color: tomato !important;
+}
+
+.success {
+    background-color: #0fcb94 !important;
+}
+
+.loading {
+    background-color: #6c757d !important;
 }
