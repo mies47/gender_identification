@@ -1,0 +1,26 @@
+
+/*
+Give body fullscreen size with no margin and padding
+Add background image with repeat set to 0 and position in center and fixed while scrolling
+Set size of background to extend image by width and height cover the whole body
+*/
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url('../images/background.png') no-repeat center fixed;
+    background-size: cover;
+}
+
+/*
+The main container of forms in flex
+To center the contents horizentaly and vertically
+*/
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
