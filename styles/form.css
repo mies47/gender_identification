@@ -56,7 +56,7 @@ note: Used $= to specify all main rows in response ending with --container
 Give every row of the main row of response column equal length(there are 3 rows)
 to avoid crazy resizing when there is no response and when we get the response
 */
-.response > [class$=--container] > * {
+.response .saved_answer--container > * {
     height: 33%;
 }
 
@@ -88,4 +88,8 @@ Give margin for submit button
 */
 .questions .button--container button {
     margin-bottom: 5px;
+}
+
+.response .prediction_result--container div {
+    padding: .6rem 0;
 }

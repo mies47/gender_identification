@@ -11,13 +11,34 @@ async function submitForm(fullname) {
     return await result.json();
 }
 
+// An async function to show recieved result from API in DOM
+// Also catches error and pass it to error handler
+async function showPredictionResult(result) {
+    try {
+        resetResults();
+        const resolvedResult = await result;
+        elem.predictionGender.innerText = resolvedResult.gender || 'Not Specified';
+        elem.predictionAccuracy.innerText = resolvedResult.probability || 'Not Specified';
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+// Resets result in DOM to empty string
+function resetResults() {
+    elem.predictionGender.innerText = '';
+    elem.predictionAccuracy.innerText = '';
+    elem.savedGender.innerText = '';
+}
+
+// Handles and shows errors
+function handleError(error) {
+
+}
+
 // Add eventListener on submit of the form with submit event
 // Prevent default action and reload of page and use submitForm
 elem.form.addEventListener('submit', (e) => {
     e.preventDefault();
-    try {
-        submitForm('Jane Doe')
-    } catch (error) {
-        console.log(error)
-    }
+    showPredictionResult(submitForm(elem.fullNameInput.value));
 })
