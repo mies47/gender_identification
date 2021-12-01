@@ -21,6 +21,7 @@ Give minimum height for having enough space in each column
     display: flex;
     flex-direction: row;
     min-height: 400px;
+    min-width: 550px;
 }
 
 /*
@@ -102,6 +103,9 @@ Give margin for submit button
     margin-bottom: 5px;
 }
 
+/*
+Give padding between gender and accuracy
+*/
 .response .prediction_result--container div {
     padding: .6rem 0;
 }

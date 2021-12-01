@@ -62,27 +62,30 @@ function resetResults() {
     elem.savedGender.innerText = '';
 }
 
-// Handles and shows errors clears after 2 seconds
+// Handles and shows errors clears after 2 seconds by adding classes
 function handleError(error) {
     elem.notification.innerText = error;
+    elem.notification.classList.add('show');
     elem.notification.classList.add('error');
     setTimeout(clearNotification, 2000)
 }
 
-// Handles and shows success clears after 2 seconds
+// Handles and shows success clears after 2 seconds by adding classes
 function handleSuccess(msg) {
     elem.notification.innerText = msg;
+    elem.notification.classList.add('show');
     elem.notification.classList.add('success');
     setTimeout(clearNotification, 2000)
 }
 
-// Handles and shows loading
+// Handles and shows loading by adding classes
 function handleLoading() {
     elem.notification.innerText = 'Fetching the data please wait...';
+    elem.notification.classList.add('show');
     elem.notification.classList.add('loading');
 }
 
-// Clears the notification by changing background to transparent
+// Clears the notification by changing opacity to 0
 function clearNotification() {
     elem.notification.classList = 'notifications';
     elem.notification.innerText = '';

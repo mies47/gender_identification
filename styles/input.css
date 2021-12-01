@@ -1,0 +1,54 @@
+/*
+Styles for all text inputs to make them look like materialized inputs
+*/
+
+/*
+Give relative position to container so I could position label based on this container
+*/
+div[class$=input--container] {
+    position: relative;
+}
+
+/* 
+Remove outline and border but border bottom with transparent background
+Give line height for better spacing
+*/
+input[type='text'] {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid grey;
+    background: transparent;
+    line-height: 2rem;
+}
+
+/*
+When input is focused change border color
+*/
+input[type='text']:focus {
+    border-bottom: 2px solid rgb(39, 90, 149);
+}
+
+/*
+Position label in the input field like a placeholder
+Give transition effect for moving up and down to be more subtle
+*/
+div[class$=input--container] label {
+    color: grey;
+    position: absolute;
+    bottom: 30%;
+    left: .5rem;
+    transition: all ease .2s;
+}
+
+/*
+Position label on top when input is focused or valid(not empty since it is required)
+Selected with sibling selector
+*/
+input[type='text']:focus ~ label {
+    bottom: 80%;
+    color: rgb(39, 90, 149);
+}
+input[type='text']:valid ~ label {
+    bottom: 80%;
+    color: rgb(39, 90, 149);
+}

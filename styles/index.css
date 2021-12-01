@@ -3,6 +3,7 @@ Import styles from form.css
 */
 @import url('./form.css');
 @import url('./button.css');
+@import url('./input.css');
 /*
 Give body fullscreen size with no margin and padding
 Add background image with repeat set to 0 and position in center and fixed while scrolling
@@ -38,24 +39,40 @@ h2 {
     margin: .5rem 0;
 }
 
+/*
+Give notification specific height and width to prevent from crazy resizing and transition
+Center text and give it some nice curved corners
+Set opacity to 0 to make it hidden
+Set transition on all properties and use it to show and hide the div with effects
+*/
 .notifications {
     color: white;
+    text-align: center;
     height: 1rem;
     border: 1px solid transparent;
     border-radius: 5rem;
     padding: .5rem;
-    background-color: transparent;
+    opacity: 0;
     transition: all ease .5s;
+    width: 350px;
 }
 
+/*
+Class to show notification when added
+*/
+.show {
+    opacity: 1;
+}
+
+/*
+Classes with different backgrounds for different situations
+*/
 .error {
     background-color: tomato !important;
 }
-
 .success {
     background-color: #0fcb94 !important;
 }
-
 .loading {
     background-color: #6c757d !important;
 }
