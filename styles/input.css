@@ -52,3 +52,10 @@ input[type='text']:valid ~ label {
     bottom: 80%;
     color: rgb(39, 90, 149);
 }
+
+/*
+Add red border for invalid cases
+*/
+.invalid {
+    border-bottom: 2px solid red !important;
+}
