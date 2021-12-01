@@ -7,6 +7,7 @@ The main form container
 Padding for better view and space from border
 Border solid and color same as box shadow to make it look nicer
 Border radius for curves on corners like description picture
+Used box shadow to look nicer from https://getcssscan.com/css-box-shadow-examples
 Use transparent background
 Reduce background opacity to help readability of inside elements
 Use flex display to make to columns of equal width with row direction for large screens
@@ -40,7 +41,7 @@ Use flex to stack up elements on top of each other
 Give direct children of each column padding for better seperation
 */
 .questions > *, .response > * {
-    padding: 1rem;
+    padding: .5rem;
 }
 
 /*
@@ -64,4 +65,27 @@ Give saved answer row dashed border like it was in the description picture
 */
 .response .saved_answer--container {
     border: 1px dashed grey;
+}
+
+/*
+Give margin for male gender radio option
+*/
+.gender_selection--container div {
+    margin-bottom: 5px;
+}
+
+/*
+Display each button in one row with min width of buttons width
+*/
+.questions .button--container {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+}
+
+/*
+Give margin for submit button
+*/
+.questions .button--container button {
+    margin-bottom: 5px;
 }

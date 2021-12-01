@@ -10,21 +10,27 @@
     </head>
     <body>
         <div class="main">
-            <div class="form">
+            <form class="form">
                 <div class="questions">
                     <h2>Mr. or Ms.?</h2>
                     <div class="name_input--container">
                         <label for="fullname_input">Name</label>
-                        <input type="text" name="fullname" id="fullname_input">
+                        <input type="text" name="fullname" id="fullname_input" maxlength="255">
+                        <div class="validate_error"></div>
                     </div>
                     <div class="gender_selection--container">
-                        <label for="male">male</label>
-                        <input type="radio" name="gender" id="male" value="male">
-                        <label for="female">female</label>
-                        <input type="radio" name="gender" id="female" value="female">
+                        <div>
+                            <input type="radio" name="gender" id="male" value="male">
+                            <label for="male">male</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female">female</label>
+                        </div>
                     </div>
-                    <div class="submit_button--container">
-                        <button type="submit">Submit</button>
+                    <div class="button--container">
+                        <button class="btn submit">Submit</button>
+                        <button class="btn save">Save</button>
                     </div>
                 </div>
                 <div class="response">
@@ -37,12 +43,12 @@
                         <h2>Saved Answer</h2>
                         <div class="saved_answer--gender"></div>
                         <div class="clear_button--container">
-                            <button>Clear</button>
+                            <button class="btn clear">Clear</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-        <script src="./scripts/index.js"></script>
+        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>
