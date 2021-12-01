@@ -43,6 +43,7 @@ to show form in rows and make it mobile friendly
 @media screen and (max-width: 550px) {
     .form {
         flex-direction: column;
+        min-width: 90vw;
     }
     .response {
         min-height: 300px;
