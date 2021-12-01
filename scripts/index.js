@@ -18,10 +18,35 @@ async function showPredictionResult(result) {
         resetResults();
         const resolvedResult = await result;
         elem.predictionGender.innerText = resolvedResult.gender || 'Not Specified';
+        if(resolvedResult.gender){
+            elem.genderRadioInputs[0].checked = resolvedResult.gender == 'male';
+            elem.genderRadioInputs[1].checked = !elem.genderRadioInputs[0].checked;
+        }
         elem.predictionAccuracy.innerText = resolvedResult.probability || 'Not Specified';
+        fetchLocalStorage();
     } catch (error) {
         handleError(error);
     }
+}
+
+// Saves the name in input and radio option in local storage
+function saveGuess() {
+    const name = elem.fullNameInput.value;
+    const gender = elem.genderRadioInputs[0].checked ? 'male' : 'female';
+    localStorage.setItem(name, gender);
+}
+
+// Fetches data from local storage based on input and changes the value of saved answer
+function fetchLocalStorage() {
+    const name = elem.fullNameInput.value;
+    const gender = localStorage.getItem(name) || 'Nothing in storage';
+    elem.savedGender.innerText = gender;
+}
+
+// Tries to remove the item from local storage based in input value
+function clearLocalStorage() {
+    const name = elem.fullNameInput.value;
+    localStorage.removeItem(name);
 }
 
 // Resets result in DOM to empty string
@@ -41,4 +66,18 @@ function handleError(error) {
 elem.form.addEventListener('submit', (e) => {
     e.preventDefault();
     showPredictionResult(submitForm(elem.fullNameInput.value));
-})
+});
+
+// Add eventListener on click of the save button
+// Prevent default action
+elem.saveBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    saveGuess();
+});
+
+// Add eventListener on click of the clear button
+// Prevent default action
+elem.clearBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    clearLocalStorage();
+});

@@ -2,6 +2,7 @@
 Import styles from form.css
 */
 @import url('./form.css');
+@import url('./button.css');
 /*
 Give body fullscreen size with no margin and padding
 Add background image with repeat set to 0 and position in center and fixed while scrolling
@@ -14,6 +15,7 @@ body {
     padding: 0;
     background: url('../images/background.webp') no-repeat center fixed;
     background-size: cover;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /*

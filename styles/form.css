@@ -8,18 +8,16 @@ Padding for better view and space from border
 Border solid and color same as box shadow to make it look nicer
 Border radius for curves on corners like description picture
 Used box shadow to look nicer from https://getcssscan.com/css-box-shadow-examples
-Use transparent background
-Reduce background opacity to help readability of inside elements
+Use white background reduce background opacity to help readability of inside elements
 Use flex display to make to columns of equal width with row direction for large screens
 Give minimum height for having enough space in each column
 */
 .form {
-    padding: 2rem;
+    padding: 1rem;
     border: 1px rgba(0, 0, 0, 0.24) solid;
     border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background: transparent;
-    opacity: 0.7;
+    background-color: rgba(255, 255, 255, 0.3);;
     display: flex;
     flex-direction: row;
     min-height: 400px;

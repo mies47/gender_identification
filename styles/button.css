@@ -1,0 +1,20 @@
+.btn {
+    padding: .3rem .5rem;
+    border: 1px solid transparent;
+    border-radius: .8rem;
+    background-color: white;
+    color: white;
+    cursor: pointer;
+}
+
+.btn.submit {
+    background-color:  #0fcb94;
+}
+
+.btn.save {
+    background-color: #0dcaf0;
+}
+
+.btn.clear {
+    background-color: #ffc107;
+}
