@@ -1,4 +1,7 @@
-
+/*
+Import styles from form.css
+*/
+@import url('./form.css');
 /*
 Give body fullscreen size with no margin and padding
 Add background image with repeat set to 0 and position in center and fixed while scrolling
@@ -9,7 +12,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background: url('../images/background.png') no-repeat center fixed;
+    background: url('../images/background.webp') no-repeat center fixed;
     background-size: cover;
 }
 
@@ -23,4 +26,11 @@ To center the contents horizentaly and vertically
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/*
+Remove default margin of h2 since I used padding for them
+*/
+h2 {
+    margin: 0;
 }

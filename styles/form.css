@@ -1,0 +1,67 @@
+/*
+This file contains all styles needed for the middle form
+*/
+
+/*
+The main form container
+Padding for better view and space from border
+Border solid and color same as box shadow to make it look nicer
+Border radius for curves on corners like description picture
+Use transparent background
+Reduce background opacity to help readability of inside elements
+Use flex display to make to columns of equal width with row direction for large screens
+Give minimum height for having enough space in each column
+*/
+.form {
+    padding: 2rem;
+    border: 1px rgba(0, 0, 0, 0.24) solid;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background: transparent;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+
+/*
+Make questions and response equal width columns
+Padding to look nicer and better seperation
+Use flex to stack up elements on top of each other
+*/
+.questions, .response {
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+Give direct children of each column padding for better seperation
+*/
+.questions > *, .response > * {
+    padding: 1rem;
+}
+
+/*
+Give equal height to main rows of response column
+note: Used $= to specify all main rows in response ending with --container
+*/
+.response > [class$=--container] {
+    height: 50%;
+}
+
+/*
+Give every row of the main row of response column equal length(there are 3 rows)
+to avoid crazy resizing when there is no response and when we get the response
+*/
+.response > [class$=--container] > * {
+    height: 33%;
+}
+
+/*
+Give saved answer row dashed border like it was in the description picture
+*/
+.response .saved_answer--container {
+    border: 1px dashed grey;
+}
